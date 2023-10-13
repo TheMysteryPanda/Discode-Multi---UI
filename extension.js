@@ -6,6 +6,9 @@ const path = require("path");
 
 let discordWebhooks = [];
 
+
+//Test 
+
 async function fetchWebhooks() {
   try {
     const filePath = path.join(__dirname, "./src/webhooks.json");
