@@ -1,0 +1,268 @@
+{
+  "name": "discodemulti---ui",
+  "publisher": "TheMysteryPanda",
+  "displayName": "DiscodeMulti - UI",
+  "description": "Share Code to multiple Discord Channels with Webhooks - Now with User Interface",
+  "version": "0.0.13",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "icon": "src/Logo.png",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:DiscodeMulti.sendToDiscord",
+    "onCommand:DiscodeMulti.setAuthorName",
+    "onCommand:DiscodeMulti.addWebhook",
+    "onCommand:DiscodeMulti.setAvatarLink",
+    "onCommand:DiscodeMulti.deleteWebhook"
+
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "DiscodeMultiContainer",
+          "title": "Discode Multi",
+          "icon": "src/Logo_Transparent.png"
+        }
+      ]
+    },
+    "views": {
+      "DiscodeMultiContainer": [
+        {
+          "id": "discodeMultiView",
+          "name": "Discode Multi View"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "DiscodeMulti.sendToDiscordViaConsole",
+        "title": "Discode Multi - Send Code to Discord Channel"
+      },
+    {
+      "command": "DiscodeMulti.openWebhooksFile",
+      "title": "Discode Multi - Open Webhooks Settings"
+    },
+    {
+      "command": "DiscodeMulti.setAuthorName",
+      "title": "Discode Multi - Change Author Name"
+    },
+    {
+      "command": "DiscodeMulti.addWebhook",
+      "title": "Discode Multi - Add Webhook"
+    },
+    {
+      "command": "DiscodeMulti.deleteWebhook",
+      "title": "Discode Multi - Delete Webhook"
+    },
+    {
+      "command": "DiscodeMulti.setAvatarLink",
+      "title": "Discode Multi - Change Avatar"
+    }
+  ],
+      "menus": {
+          "editor/context": [
+              {
+                  "command": "DiscodeMulti.sendToDiscordViaConsole",
+                  "group": "navigation",
+                  "title": "Discode Multi - Send Code to Discord Channel"
+
+              }
+          ]
+      },
+  "configuration": {
+    "title": "Discode Multi",
+    "properties": {
+      "discodeMulti.authorName": {
+        "type": "string",
+        "default": "Discode Multi",
+        "description": "Name of the message Author"
+      },
+      "discodeMulti.avatarUrl": {
+        "type": "string",
+        "default": "https://bonuscheck.casino/static/public/all/DiscodeMulti.png",
+        "description": "Url of your Avatar"
+      }
+    }
+  }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.2",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.73.0",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.50.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2"
+  },
+  "directories": {
+    "test": "test",
+    "src": "src"
+
+  },
+  "dependencies": {
+    "acorn": "^8.10.0",
+    "acorn-jsx": "^5.3.2",
+    "agent-base": "^6.0.2",
+    "ajv": "^6.12.6",
+    "ansi-colors": "^4.1.1",
+    "ansi-regex": "^5.0.1",
+    "ansi-styles": "^4.3.0",
+    "anymatch": "^3.1.3",
+    "argparse": "^2.0.1",
+    "balanced-match": "^1.0.2",
+    "binary-extensions": "^2.2.0",
+    "brace-expansion": "^1.1.11",
+    "braces": "^3.0.2",
+    "browser-stdout": "^1.3.1",
+    "callsites": "^3.1.0",
+    "camelcase": "^6.3.0",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.5.3",
+    "cliui": "^7.0.4",
+    "color-convert": "^2.0.1",
+    "color-name": "^1.1.4",
+    "concat-map": "^0.0.1",
+    "core-util-is": "^1.0.3",
+    "cross-spawn": "^7.0.3",
+    "debug": "^4.3.4",
+    "decamelize": "^4.0.0",
+    "deep-is": "^0.1.4",
+    "diff": "^5.0.0",
+    "discord-webhook-node": "^1.1.8",
+    "doctrine": "^3.0.0",
+    "eastasianwidth": "^0.2.0",
+    "emoji-regex": "^9.2.2",
+    "escalade": "^3.1.1",
+    "escape-string-regexp": "^4.0.0",
+    "eslint-scope": "^7.2.2",
+    "eslint-visitor-keys": "^3.4.3",
+    "espree": "^9.6.1",
+    "esquery": "^1.5.0",
+    "esrecurse": "^4.3.0",
+    "estraverse": "^5.3.0",
+    "esutils": "^2.0.3",
+    "fast-deep-equal": "^3.1.3",
+    "fast-json-stable-stringify": "^2.1.0",
+    "fast-levenshtein": "^2.0.6",
+    "fastq": "^1.15.0",
+    "file-entry-cache": "^6.0.1",
+    "fill-range": "^7.0.1",
+    "find-up": "^5.0.0",
+    "flat": "^5.0.2",
+    "flat-cache": "^3.1.1",
+    "flatted": "^3.2.9",
+    "foreground-child": "^3.1.1",
+    "fs.realpath": "^1.0.0",
+    "fsevents": "^2.3.3",
+    "get-caller-file": "^2.0.5",
+    "glob-parent": "^6.0.2",
+    "globals": "^13.23.0",
+    "graphemer": "^1.4.0",
+    "has-flag": "^4.0.0",
+    "he": "^1.2.0",
+    "http-proxy-agent": "^4.0.1",
+    "https-proxy-agent": "^5.0.1",
+    "ignore": "^5.2.4",
+    "immediate": "^3.0.6",
+    "import-fresh": "^3.3.0",
+    "imurmurhash": "^0.1.4",
+    "inflight": "^1.0.6",
+    "inherits": "^2.0.4",
+    "is-binary-path": "^2.1.0",
+    "is-extglob": "^2.1.1",
+    "is-fullwidth-code-point": "^3.0.0",
+    "is-glob": "^4.0.3",
+    "is-number": "^7.0.0",
+    "is-path-inside": "^3.0.3",
+    "is-plain-obj": "^2.1.0",
+    "is-unicode-supported": "^0.1.0",
+    "isarray": "^1.0.0",
+    "isexe": "^2.0.0",
+    "jackspeak": "^2.3.6",
+    "js-yaml": "^4.1.0",
+    "json-buffer": "^3.0.1",
+    "json-schema-traverse": "^0.4.1",
+    "json-stable-stringify-without-jsonify": "^1.0.1",
+    "jszip": "^3.10.1",
+    "keyv": "^4.5.4",
+    "levn": "^0.4.1",
+    "lie": "^3.3.0",
+    "locate-path": "^6.0.0",
+    "lodash.merge": "^4.6.2",
+    "log-symbols": "^4.1.0",
+    "lru-cache": "^10.0.1",
+    "minimatch": "^3.1.2",
+    "minipass": "^7.0.4",
+    "ms": "^2.1.2",
+    "nanoid": "^3.3.3",
+    "natural-compare": "^1.4.0",
+    "normalize-path": "^3.0.0",
+    "once": "^1.4.0",
+    "optionator": "^0.9.3",
+    "p-limit": "^3.1.0",
+    "p-locate": "^5.0.0",
+    "pako": "^1.0.11",
+    "parent-module": "^1.0.1",
+    "path-exists": "^4.0.0",
+    "path-is-absolute": "^1.0.1",
+    "path-key": "^3.1.1",
+    "path-scurry": "^1.10.1",
+    "picomatch": "^2.3.1",
+    "prelude-ls": "^1.2.1",
+    "process-nextick-args": "^2.0.1",
+    "punycode": "^2.3.0",
+    "queue-microtask": "^1.2.3",
+    "randombytes": "^2.1.0",
+    "readable-stream": "^2.3.8",
+    "readdirp": "^3.6.0",
+    "require-directory": "^2.1.1",
+    "resolve-from": "^4.0.0",
+    "reusify": "^1.0.4",
+    "rimraf": "^3.0.2",
+    "run-parallel": "^1.2.0",
+    "safe-buffer": "^5.1.2",
+    "semver": "^7.5.4",
+    "serialize-javascript": "^6.0.0",
+    "setimmediate": "^1.0.5",
+    "shebang-command": "^2.0.0",
+    "shebang-regex": "^3.0.0",
+    "signal-exit": "^4.1.0",
+    "string_decoder": "^1.1.1",
+    "string-width": "^5.1.2",
+    "string-width-cjs": "^4.2.3",
+    "strip-ansi": "^6.0.1",
+    "strip-ansi-cjs": "^6.0.1",
+    "strip-json-comments": "^3.1.1",
+    "supports-color": "^7.2.0",
+    "text-table": "^0.2.0",
+    "to-regex-range": "^5.0.1",
+    "type-check": "^0.4.0",
+    "type-fest": "^0.20.2",
+    "uri-js": "^4.4.1",
+    "util-deprecate": "^1.0.2",
+    "which": "^2.0.2",
+    "workerpool": "^6.2.1",
+    "wrap-ansi": "^8.1.0",
+    "wrap-ansi-cjs": "^7.0.0",
+    "wrappy": "^1.0.2",
+    "y18n": "^5.0.8",
+    "yallist": "^4.0.0",
+    "yargs": "^16.2.0",
+    "yargs-parser": "^20.2.4",
+    "yargs-unparser": "^2.0.0",
+    "yocto-queue": "^0.1.0"
+  },
+  "author": "TheMysteryPanda",
+  "license": "ISC"
+}
