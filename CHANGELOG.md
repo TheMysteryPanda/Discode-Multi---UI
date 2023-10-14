@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file.
 ### Added
 - **Show Webhooks in HTML Command**: Introduced a new command that provides users with a comprehensive overview of their webhooks. This feature allows for easy addition or deletion of webhooks via a user-friendly HTML interface.
 
+![HTML DASHBOARD](https://bonuscheck.casino/static/public/all/DiscodeMulti-HTML.png)
+
+
 ## [0.0.13] - 2023-10-01
 ### Fixed
 - Minor bug fixes and performance enhancements.

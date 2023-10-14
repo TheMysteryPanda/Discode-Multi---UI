@@ -18,6 +18,7 @@ Share Code to multiple Discord Channels with Webhooks - Now with a User Interfac
 
 ## Features
 - **Send Code to Discord**: Share your code snippets to Discord channels swiftly.
+![EXAMPLE PICTURE](https://bonuscheck.casino/static/public/all/DiscodeMulti-DiscordMessage.png)
 - **Manage Webhooks**: Effortlessly add, delete, and configure Discord webhooks in VS Code.
 - **Set Author Details**: Customize your code shares by defining an author name and avatar.
 - **Tree View Interface**: Interact and manage your webhooks using a tree view interface in the sidebar.
@@ -31,6 +32,8 @@ Share Code to multiple Discord Channels with Webhooks - Now with a User Interfac
 - **Discode Multi - Set Avatar URL**: Update a custom avatar URL for your shares.
 - **Discode Multi - Show Webhooks in HTML**: Get a comprehensive overview of your webhooks and effortlessly add or delete them.
 
+![HTML DASHBOARD](https://bonuscheck.casino/static/public/all/DiscodeMulti-HTML.png)
+
 ## Installation
 1. Ensure you have VS Code version `^1.73.0` or newer.
 2. Open VS Code.
@@ -42,6 +45,8 @@ Share Code to multiple Discord Channels with Webhooks - Now with a User Interfac
 1. Post-installation, initiate the tree view in the sidebar to manage your Discord webhooks.
 2. Utilize the commands to add webhooks, adjust author details, and share code to Discord.
 3. Highlight a code snippet in your editor and either click on a channel inside the TreeView or invoke the "Discode Multi - Send Code to Discord Channel" command to share it.
+![Right Click Command](https://bonuscheck.casino/static/public/all/DiscodeMulti-SendCommand.png)
+![TreeView](https://bonuscheck.casino/static/public/all/DiscodeMulti-TreeView.png)
 
 ## Feedback and Support
 Encounter issues or have enhancement ideas? Contact [TheMysteryPanda](https://github.com/TheMysteryPanda) on Discord or raise an issue on the GitHub repository.
