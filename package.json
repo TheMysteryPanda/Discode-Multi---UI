@@ -3,7 +3,7 @@
   "publisher": "TheMysteryPanda",
   "displayName": "DiscodeMulti - UI",
   "description": "Share Code to multiple Discord Channels with Webhooks - Now with User Interface",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "engines": {
     "vscode": "^1.73.0"
   },
@@ -17,7 +17,6 @@
     "onCommand:DiscodeMulti.addWebhook",
     "onCommand:DiscodeMulti.setAvatarLink",
     "onCommand:DiscodeMulti.deleteWebhook"
-
   ],
   "main": "./extension.js",
   "contributes": {
@@ -43,52 +42,55 @@
         "command": "DiscodeMulti.sendToDiscordViaConsole",
         "title": "Discode Multi - Send Code to Discord Channel"
       },
-    {
-      "command": "DiscodeMulti.openWebhooksFile",
-      "title": "Discode Multi - Open Webhooks Settings"
-    },
-    {
-      "command": "DiscodeMulti.setAuthorName",
-      "title": "Discode Multi - Change Author Name"
-    },
-    {
-      "command": "DiscodeMulti.addWebhook",
-      "title": "Discode Multi - Add Webhook"
-    },
-    {
-      "command": "DiscodeMulti.deleteWebhook",
-      "title": "Discode Multi - Delete Webhook"
-    },
-    {
-      "command": "DiscodeMulti.setAvatarLink",
-      "title": "Discode Multi - Change Avatar"
-    }
-  ],
-      "menus": {
-          "editor/context": [
-              {
-                  "command": "DiscodeMulti.sendToDiscordViaConsole",
-                  "group": "navigation",
-                  "title": "Discode Multi - Send Code to Discord Channel"
-
-              }
-          ]
+      {
+        "command": "DiscodeMulti.openWebhooksFile",
+        "title": "Discode Multi - Open Webhooks Settings"
       },
-  "configuration": {
-    "title": "Discode Multi",
-    "properties": {
-      "discodeMulti.authorName": {
-        "type": "string",
-        "default": "Discode Multi",
-        "description": "Name of the message Author"
+      {
+        "command": "DiscodeMulti.setAuthorName",
+        "title": "Discode Multi - Change Author Name"
       },
-      "discodeMulti.avatarUrl": {
-        "type": "string",
-        "default": "https://bonuscheck.casino/static/public/all/DiscodeMulti.png",
-        "description": "Url of your Avatar"
+      {
+        "command": "DiscodeMulti.addWebhook",
+        "title": "Discode Multi - Add Webhook"
+      },
+      {
+        "command": "DiscodeMulti.deleteWebhook",
+        "title": "Discode Multi - Delete Webhook"
+      },
+      {
+        "command": "DiscodeMulti.setAvatarLink",
+        "title": "Discode Multi - Change Avatar"
+      },
+      {
+        "command": "extension.showWebhooks",
+        "title": "Discode Multi - Show Webhooks in HTML"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "DiscodeMulti.sendToDiscordViaConsole",
+          "group": "navigation",
+          "title": "Discode Multi - Send Code to Discord Channel"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Discode Multi",
+      "properties": {
+        "discodeMulti.authorName": {
+          "type": "string",
+          "default": "Discode Multi",
+          "description": "Name of the message Author"
+        },
+        "discodeMulti.avatarUrl": {
+          "type": "string",
+          "default": "https://bonuscheck.casino/static/public/all/DiscodeMulti.png",
+          "description": "Url of your Avatar"
+        }
       }
     }
-  }
   },
   "scripts": {
     "lint": "eslint .",
@@ -108,7 +110,6 @@
   "directories": {
     "test": "test",
     "src": "src"
-
   },
   "dependencies": {
     "acorn": "^8.10.0",

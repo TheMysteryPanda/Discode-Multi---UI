@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhooks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
+        th, td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }        
+        th {
+            background-color: #007ACC;
+            color: white;
+            text-transform: uppercase;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .delete-btn {
+            color: red;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Webhooks List</h2>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Image</th>
+                    <th>Discord Channel</th>
+                    <th>Bot Name</th>
+                    <th>Channel Name</th>
+                    <th>Webhook URL</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="webhooksTable">
+                <!-- Data from webhooks.json will be inserted here -->
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+            <button id="addWebhookBtn" class="btn btn-primary">Add Webhook</button>
+        </div>
+    </div>
+
+
+<script>
+
+    let webhooks = [];
+    
+
+
+
+    function renderWebhooks() {
+        const tbody = document.getElementById('webhooksTable');
+        tbody.innerHTML = '';  // Clear the table
+    
+        // Group by Discord Name
+        const groupedByDiscordName = {};
+        webhooks.forEach(webhook => {
+            if (!groupedByDiscordName[webhook.DiscordName]) {
+                groupedByDiscordName[webhook.DiscordName] = [];
+            }
+            groupedByDiscordName[webhook.DiscordName].push(webhook);
+        });
+    
+        Object.entries(groupedByDiscordName).forEach(([discordName, hooks]) => {
+            // Insert Discord Name as a header row
+            const headerRow = document.createElement('tr');
+            const headerCell = document.createElement('th');
+            headerCell.colSpan = 6;
+            headerCell.textContent = discordName;
+            headerRow.appendChild(headerCell);
+            tbody.appendChild(headerRow);
+    
+            // Insert webhooks for this Discord Name
+            hooks.forEach(webhook => {
+                const tr = document.createElement('tr');
+
+                // Image
+                const tdImage = document.createElement('td');
+                const img = document.createElement('img');
+                img.src = webhook.pictureImageURL;
+                img.alt = "Image for " + webhook.botName;
+                img.width = 50;  // You can adjust this
+                tdImage.appendChild(img);
+                tr.appendChild(tdImage);
+                
+                
+                // Discord Name
+                const tdDiscordName = document.createElement('td');
+                tdDiscordName.textContent = webhook.DiscordName;
+                tr.appendChild(tdDiscordName);
+        
+                // Bot Name
+                const tdName = document.createElement('td');
+                tdName.textContent = webhook.botName;
+                tr.appendChild(tdName);
+        
+                // Channel Name
+                const tdChannelName = document.createElement('td');
+                tdChannelName.textContent = webhook.channelName;
+                tr.appendChild(tdChannelName);
+        
+                // Webhook URL
+                const tdURL = document.createElement('td');
+                tdURL.textContent = webhook.webhookURL;
+                tr.appendChild(tdURL);
+        
+                // Action
+                const tdAction = document.createElement('td');
+                const deleteBtn = document.createElement('span');
+                deleteBtn.textContent = 'x';
+                deleteBtn.style.color = 'red';
+                deleteBtn.style.cursor = 'pointer';
+                deleteBtn.addEventListener('click', () => deleteWebhook(webhooks.indexOf(webhook)));
+                tdAction.appendChild(deleteBtn);
+                tr.appendChild(tdAction);
+        
+                tbody.appendChild(tr);
+            });
+        });
+    }
+    
+
+    fetch('/src/webhooks.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      webhooks = data.discordWebhooks;
+      renderWebhooks();
+    })
+    .catch(error => {
+      console.error('There was a problem fetching the webhooks:', error.message);
+    });
+    
+    </script>
+    <script>
+        function deleteWebhook(index) {
+            // Remove the webhook from the array
+            webhooks.splice(index, 1);
+            
+            // Re-render the table
+            renderWebhooks();
+    
+            // Send a message to the extension to delete the webhook from webhooks.json
+            const vscode = acquireVsCodeApi();
+            vscode.postMessage({
+                command: 'deleteWebhook',
+                index: index
+            });
+        }
+    </script>
+    <script>
+            // Add an event listener to the button
+            document.getElementById('addWebhookBtn').addEventListener('click', function() {
+                // Send a message to the extension to trigger the add webhook command
+                const vscode = acquireVsCodeApi();
+                vscode.postMessage({
+                    command: 'addWebhook'
+                });
+            });
+    </script>
+    <script>
+        window.addEventListener('message', event => {
+            const message = event.data;
+            switch (message.command) {
+                case 'refreshWebhooks':
+                    webhooks = message.data;
+                    renderWebhooks();
+                    break;
+            }
+        });
+    </script>
+
+</body>
+</html>

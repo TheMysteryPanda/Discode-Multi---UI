@@ -1,10 +1,112 @@
 {
     "discordWebhooks": [
         {
+            "DiscordName": "BonusCheck",
             "botName": "VsCode - Unfiltered",
             "channelName": "unfiltered_uploads",
             "pictureImageURL": "https://static.thenounproject.com/png/1939692-200.png",
             "webhookURL": "https://discord.com/api/webhooks/1161345820751302677/1Ebs3yYoKZN-pWoSWM736Tlhzsx0mfX7iIOpl3AxPNys7-CRXQmGTdwr_xXVGuvVUByD"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - C++",
+            "channelName": "cpp",
+            "pictureImageURL": "https://w7.pngwing.com/pngs/46/626/png-transparent-c-logo-the-c-programming-language-computer-icons-computer-programming-source-code-programming-miscellaneous-template-blue.png",
+            "webhookURL": "https://discord.com/api/webhooks/1161352347776209059/09YVve3_iyvUDFjx40XxstH6yQn4x8p9ZoVdy1QB9UQxzYtoo74tAZrwJtKmrf0OWxaa",
+            "null": "VsCode - Unfiltasdasdered"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - CSS",
+            "channelName": "css",
+            "pictureImageURL": "https://w7.pngwing.com/pngs/696/424/png-transparent-logo-css-css3-thumbnail.png",
+            "webhookURL": "https://discord.com/api/webhooks/1161485573358358548/s_Zlvq2B1gsDn1IPqwSjSWN1Pqiru6owmF2Rj5HrjttePrZS7B0lGR9zqvUlUaLuejbK",
+            "null": "VsCode - C++"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - HTML",
+            "channelName": "html",
+            "pictureImageURL": "https://w7.pngwing.com/pngs/390/229/png-transparent-logo-html5-brand-design-text-logo-number.png",
+            "webhookURL": "https://discord.com/api/webhooks/1161528245569736746/SObKhm095N2pW0RFC3z2V5sgTuo40A0ZZzUGk-W3yULd8YG8pzCzqQgwX33VlyIx6UAE"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - Java",
+            "channelName": "java",
+            "pictureImageURL": "https://w7.pngwing.com/pngs/837/18/png-transparent-logo-java-runtime-environment-programming-language-runtime-system-oracle-text-logo-desktop-wallpaper-thumbnail.png",
+            "webhookURL": "https://discord.com/api/webhooks/1161531529235804220/5jRpeWRh64l33QkTSlYYVcks2x5sESm5f7gnc7qbpveLDacxL_xjKTfJQw-nnv7N7qrF"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - Javascript",
+            "channelName": "js",
+            "pictureImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT47BsGm6APR3KVnzqK0XfwuB7XfYLl_U8Z0bcJv-_CfA&s",
+            "webhookURL": "https://discord.com/api/webhooks/1161531784530513920/bPNcrF0l2kRgtMemX6OAtJiImXAOlgOGJ4mXOyQxvmJp0wZQL8n0rsp_E6kFSP5GCmVS"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - Python",
+            "channelName": "python",
+            "pictureImageURL": "https://w7.pngwing.com/pngs/364/982/png-transparent-python-programming-language-computer-programming-language-angle-text-computer-thumbnail.png",
+            "webhookURL": "https://discord.com/api/webhooks/1161343978076114954/HnnhnX4O2wGB37C_Qxt8Wb2IuwW-wk238v47snYGk2f6ttWykE6m9y_-kT8VqU9Fyuoh"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - SQL",
+            "channelName": "sql",
+            "pictureImageURL": "https://w7.pngwing.com/pngs/525/959/png-transparent-microsoft-azure-sql-database-microsoft-sql-server-cloud-computing-text-trademark-logo.png",
+            "webhookURL": "https://discord.com/api/webhooks/1161532127972700242/dse6tdn8RlVTA8NWOWURJfl3yaZ_--TsBBlRjn-u-ZR6fUgXXaKEZjiDXFUNFFTaRVJx"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - Flask",
+            "channelName": "flask",
+            "pictureImageURL": "https://cdn.freebiesupply.com/logos/thumbs/2x/flask-logo.png",
+            "webhookURL": "https://discord.com/api/webhooks/1161532346923761745/xwURDo1m0K2Bx-n2rH2AvjUAHzp7dCLZbOhBLUVT547imoFEsx6H9w-rR6S9fu7kAzdp"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - WebScraping",
+            "channelName": "webscraping",
+            "pictureImageURL": "https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_vscode_icon_130084.png",
+            "webhookURL": "https://discord.com/api/webhooks/1161532565082091530/JravgdPpQwZ3XZqVIC7bepvRfZVjHFH2FK-E-p9FjY_FOZg67M3zL5bDOc-L-I-M3Zp7",
+            "null": "VsCode - Fslask"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - CSharp",
+            "channelName": "csharp",
+            "pictureImageURL": "https://w7.pngwing.com/pngs/7/894/png-transparent-csharp-plain-logo-icon-thumbnail.png",
+            "webhookURL": "https://discord.com/api/webhooks/1161532920834560060/0cCPOHKL9z1tQD7hgeZxG6iEy4KW4YG9t_toDg9DRQGJqKvMm6s36tYuY17wswxNCF2n"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - Updates",
+            "channelName": "updates",
+            "pictureImageURL": "https://png.pngtree.com/png-vector/20230220/ourmid/pngtree-new-update-label-vector-illustration-png-image_6608298.png",
+            "webhookURL": "https://discord.com/api/webhooks/1161343244920164532/S0506WlSgr3BvLSOcr1KUP8kih9uz1UcIdNiTuVSImCC-L6hcLuVWD_co1AEq4LfzCP3"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - JSON",
+            "channelName": "json",
+            "pictureImageURL": "https://cdn-icons-png.flaticon.com/512/136/136525.png",
+            "webhookURL": "https://discord.com/api/webhooks/1162432099467407531/teRd61fgm3gNqPfNlDyCpewoZ56QmWtb9iQDAelAJblwbzPP6vhZOFEHNf8qWYJqvKAO"
+        },
+        {
+            "DiscordName": "BonusCheck",
+            "botName": "VsCode - TypeScript",
+            "channelName": "typescript",
+            "pictureImageURL": "https://cdn-icons-png.flaticon.com/512/919/919832.png",
+            "webhookURL": "https://discord.com/api/webhooks/1162139265594048522/Lq0RYCyHtpBbwP1frOd1PFGQe17s98o8Zeve4dbc3Pn7vuWTwXZHuB3i3rWY3-YE-b2e"
+        },
+        {
+            "DiscordName": "a",
+            "botName": "a",
+            "channelName": "a",
+            "pictureImageURL": "https://bonuscheck.casino/static/public/all/DiscodeMulti.png",
+            "webhookURL": "a"
         }
     ]
 }

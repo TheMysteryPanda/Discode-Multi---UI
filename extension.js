@@ -1,13 +1,10 @@
-const vscode = require("vscode");
+
+const path = require('path');
+const fs = require('fs');const vscode = require("vscode");
 const ApiTreeDataProvider = require("./src/treeDataProvider");
 const { Webhook, MessageBuilder } = require("discord-webhook-node");
-const fs = require("fs");
-const path = require("path");
 
 let discordWebhooks = [];
-
-
-//Test 
 
 async function fetchWebhooks() {
   try {
@@ -252,6 +249,9 @@ async function activate(context) {
   let addWebhookCommand = vscode.commands.registerCommand(
     "DiscodeMulti.addWebhook",
     async () => {
+      const DiscordName = await vscode.window.showInputBox({
+        prompt: "Enter name of the Discord Channel:",
+      });
       const botName = await vscode.window.showInputBox({
         prompt: "Name your Bot:",
       });
@@ -268,7 +268,7 @@ async function activate(context) {
       });
 
       // Ensure all fields are provided
-      if (!botName || !channelName || !pictureImageURL || !webhookURL) {
+      if (!DiscordName || !botName || !channelName || !pictureImageURL || !webhookURL) {
         vscode.window.showErrorMessage(
           "All fields are required to add a webhook."
         );
@@ -276,6 +276,7 @@ async function activate(context) {
       }
 
       const newWebhook = {
+        DiscordName,
         botName,
         channelName,
         pictureImageURL,
@@ -379,16 +380,98 @@ async function activate(context) {
     }
   );
 
+
+
+
+
+
+
   context.subscriptions.push(
     saveAuthor,
     saveAvatar,
     addWebhookCommand,
     deleteWebhookCommand
   );
+  
 
   // I know we could push all in one, but fuck that
   context.subscriptions.push(sendToDiscordCommand);
   context.subscriptions.push(openSettingsCommand);
   context.subscriptions.push(disposableSendText);
+
+
+  function showWebhooks(context) {
+    const panel = vscode.window.createWebviewPanel(
+        'webhooksView',
+        'Webhooks',
+        vscode.ViewColumn.One,
+        {
+            // Enable scripts in the webview
+            enableScripts: true,
+            
+            // Restrict the webview to only loading content from our extension's `src` directory
+            localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'src'))]
+        }
+    );
+        
+      panel.webview.onDidReceiveMessage(
+        async message => {
+            switch (message.command) {
+                case 'deleteWebhook':
+                    try {
+                        const filePath = path.join(__dirname, "./src/webhooks.json");
+                        const rawData = fs.readFileSync(filePath, "utf8");
+                        const data = JSON.parse(rawData);
+                        data.discordWebhooks.splice(message.index, 1); // Remove the webhook
+                        fs.writeFileSync(filePath, JSON.stringify(data, null, 4)); // Save the updated data
+                        await fetchWebhooks(); // Refetch webhooks after adding
+                        apiDataProvider.refresh(); // Refresh the TreeView
+                        panel.webview.postMessage({ command: 'refreshWebhooks', data: discordWebhooks });
+                      } catch (error) {
+                        vscode.window.showErrorMessage(
+                            "Error deleting webhook: " + error.message
+                        );
+                    }
+                    break;
+                    case 'addWebhook':
+                      vscode.commands.executeCommand('DiscodeMulti.addWebhook').then(async () => {
+                          await fetchWebhooks(); // Refetch webhooks after adding
+                          panel.webview.postMessage({ command: 'refreshWebhooks', data: discordWebhooks });
+                          apiDataProvider.refresh(); // Refresh the TreeView
+
+                      });
+                      break;
+            }
+        },
+        undefined,
+        context.subscriptions
+    );
+
+    // Use a nonce to whitelist which scripts can be run
+    const nonce = Date.now() + '' + Math.random();
+    
+    // Read the HTML file into memory
+    const htmlPath = path.join(__dirname, './src/webhooks.html');
+    let htmlContent = fs.readFileSync(htmlPath, 'utf8');
+    
+    // Update the HTML to set the correct path for the webhooks.json file
+    const webhooksJsonUri = panel.webview.asWebviewUri(vscode.Uri.file(path.join(__dirname, './src/webhooks.json')));
+    htmlContent = htmlContent.replace('/src/webhooks.json', webhooksJsonUri.toString());
+    
+    // Set the webview's HTML content
+    panel.webview.html = htmlContent;
+}
+
+  
+
+
+  context.subscriptions.push(vscode.commands.registerCommand('extension.showWebhooks', () => {
+      showWebhooks(context);
+    }));
+  
+  
 }
 exports.activate = activate;
+
+
+
