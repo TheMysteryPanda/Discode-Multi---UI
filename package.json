@@ -3,7 +3,7 @@
   "publisher": "TheMysteryPanda",
   "displayName": "DiscodeMulti - UI",
   "description": "Share Code to multiple Discord Channels with Webhooks - Now with User Interface",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "engines": {
     "vscode": "^1.73.0"
   },
