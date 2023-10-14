@@ -465,7 +465,7 @@ async function activate(context) {
   
 
 
-  context.subscriptions.push(vscode.commands.registerCommand('extension.showWebhooks', () => {
+  context.subscriptions.push(vscode.commands.registerCommand('DiscodeMulti.showWebhooks', () => {
       showWebhooks(context);
     }));
   
