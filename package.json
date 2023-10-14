@@ -3,13 +3,16 @@
   "publisher": "TheMysteryPanda",
   "displayName": "DiscodeMulti - UI",
   "description": "Share Code to multiple Discord Channels with Webhooks - Now with User Interface",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "engines": {
     "vscode": "^1.73.0"
   },
   "icon": "src/Logo.png",
   "categories": [
     "Other"
+  ],
+  "tags": [
+    "Discode", "VsCode", "Discord", "Connection", "DiscodeMulti", "UI"
   ],
   "activationEvents": [
     "onCommand:DiscodeMulti.sendToDiscord",

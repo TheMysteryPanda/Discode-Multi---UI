@@ -1,5 +1,5 @@
 
-# DiscodeMulti - UI (v0.0.14)
+# DiscodeMulti - UI (v0.0.15)
 Share Code to multiple Discord Channels with Webhooks - Now with a User Interface.
 
 ![Extension Icon](https://bonuscheck.casino/static/public/all/DiscodeMulti.png)
