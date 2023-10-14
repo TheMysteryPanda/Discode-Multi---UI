@@ -2,8 +2,6 @@
 # DiscodeMulti - UI (v0.0.15)
 Share Code to multiple Discord Channels with Webhooks - Now with a User Interface.
 
-![Extension Icon](https://bonuscheck.casino/static/public/all/DiscodeMulti.png)
-
 ## Table of Contents
 - [Description](#description)
 - [Features](#features)
@@ -49,7 +47,11 @@ Share Code to multiple Discord Channels with Webhooks - Now with a User Interfac
 ![TreeView](https://bonuscheck.casino/static/public/all/DiscodeMulti-TreeView.png)
 
 ## Feedback and Support
-Encounter issues or have enhancement ideas? Contact [TheMysteryPanda](https://github.com/TheMysteryPanda) on Discord or raise an issue on the GitHub repository.
+Encounter issues or have enhancement ideas? Contact [TheMysteryPanda](https://github.com/TheMysteryPanda) or raise an issue on the GitHub repository. You can also ask questions on Discord @TheMysteryPanda. 
+
+![Extension Icon](https://bonuscheck.casino/static/public/all/DiscodeMulti.png)
+
 
 ## License
 This project is licensed under the ISC License. For more information, please refer to the [ISC License documentation](https://opensource.org/licenses/ISC).
+
