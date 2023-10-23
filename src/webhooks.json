@@ -100,13 +100,6 @@
             "channelName": "typescript",
             "pictureImageURL": "https://cdn-icons-png.flaticon.com/512/919/919832.png",
             "webhookURL": "https://discord.com/api/webhooks/1162139265594048522/Lq0RYCyHtpBbwP1frOd1PFGQe17s98o8Zeve4dbc3Pn7vuWTwXZHuB3i3rWY3-YE-b2e"
-        },
-        {
-            "DiscordName": "a",
-            "botName": "a",
-            "channelName": "a",
-            "pictureImageURL": "https://bonuscheck.casino/static/public/all/DiscodeMulti.png",
-            "webhookURL": "a"
         }
     ]
 }
